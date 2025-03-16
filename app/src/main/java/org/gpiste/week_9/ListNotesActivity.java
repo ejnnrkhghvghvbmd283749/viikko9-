@@ -10,8 +10,8 @@ import java.util.ArrayList;
 
 public class ListNotesActivity extends AppCompatActivity {
 
-    public NotesListAdapter adapterr;
-    public RecyclerView recyclerView;
+    private NotesListAdapter adapter;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,12 +19,12 @@ public class ListNotesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list_notes);
 
         recyclerView = findViewById(R.id.ListNotesRV);
+
+        ArrayList<Note> notes = NoteStorage.getInstance().getNotes();
+        adapter = new NotesListAdapter(this, notes);
+
+        recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        ArrayList<Note> notes =NoteStorage.getInstance().getNotes();
-        NotesListAdapter adapterr = new NotesListAdapter(notes);
-
-        recyclerView.setAdapter(adapterr);
 
     }
 }

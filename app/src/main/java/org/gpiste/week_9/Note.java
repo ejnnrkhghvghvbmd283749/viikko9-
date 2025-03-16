@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class Note {
-    private static int counter = 1;
+    public static int counter = 1;
 
     protected int id;
     protected String title;
@@ -12,10 +12,10 @@ public class Note {
     protected String timeAndDate;
 
     public Note(String title, String content) {
-        this.id = counter++;
         this.title = title;
         this.content = content;
         this.timeAndDate = generateTime();
+        this.id = counter++;
     }
 
     private String generateTime() {

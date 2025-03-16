@@ -14,7 +14,7 @@ public class NotesListAdapter extends RecyclerView.Adapter<NoteViewHolder>{
     private Context context;
     private ArrayList<Note> notes;
 
-    public NotesListAdapter(ArrayList<Note> notes) {
+    public NotesListAdapter(Context context, ArrayList<Note> notes) {
         this.context = context;
         this.notes = notes;
     }
@@ -28,10 +28,11 @@ public class NotesListAdapter extends RecyclerView.Adapter<NoteViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull NoteViewHolder holder, int position) {
-        holder.noteId.setText(notes.get(position).getId());
-        holder.noteTime.setText(notes.get(position).getTitle());
-        holder.noteContentText.setText(notes.get(position).getContent());
-        holder.noteTime.setText(notes.get(position).getTimeAndDate());
+        Note note = notes.get(position);
+        holder.noteId.setText(String.valueOf(note.getId()));
+        holder.noteTitleText.setText(note.getTitle());
+        holder.noteContentText.setText(note.getContent());
+        holder.noteTime.setText(note.getTimeAndDate());
 
     }
 

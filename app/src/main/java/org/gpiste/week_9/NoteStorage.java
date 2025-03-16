@@ -7,6 +7,10 @@ public class NoteStorage {
     private static NoteStorage noteStorage = null;
     private ArrayList<Note> notes;
 
+
+    private NoteStorage() {
+        notes = new ArrayList<>();
+    }
     public static NoteStorage getInstance() {
         if(noteStorage == null) {
             noteStorage = new NoteStorage();
@@ -18,6 +22,9 @@ public class NoteStorage {
         return notes;
     }
     public void addNote(Note note) {
+        if(notes == null) {
+            notes = new ArrayList<>();
+        }
         notes.add(note);
     }
 }

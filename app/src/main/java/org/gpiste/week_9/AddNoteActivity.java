@@ -30,7 +30,6 @@ public class AddNoteActivity extends AppCompatActivity {
         });
 
     }
-
     public void addNotes() {
         String title = titleEdit.getText().toString();
         String content = contentEdit.getText().toString();
