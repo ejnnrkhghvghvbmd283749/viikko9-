@@ -34,9 +34,10 @@ public class AddNoteActivity extends AppCompatActivity {
         String title = titleEdit.getText().toString();
         String content = contentEdit.getText().toString();
 
-        if(!title.isEmpty() || !content.isEmpty()) {
+        if(!title.isEmpty() && !content.isEmpty()) {
             Note newNotes = new Note(title, content);
             NoteStorage.getInstance().addNote(newNotes);
+            finish();
         }
     }
 }

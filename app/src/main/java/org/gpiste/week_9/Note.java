@@ -2,10 +2,8 @@ package org.gpiste.week_9;
 
 import java.util.Calendar;
 import java.util.Locale;
-
 public class Note {
-    public static int counter = 1;
-
+    public static int counter = 0;
     protected int id;
     protected String title;
     protected String content;
@@ -15,7 +13,7 @@ public class Note {
         this.title = title;
         this.content = content;
         this.timeAndDate = generateTime();
-        this.id = counter++;
+        this.id = ++counter;
     }
 
     private String generateTime() {
@@ -29,7 +27,6 @@ public class Note {
 
         return String.format(Locale.getDefault(), "%02d:%02d %02d.%02d.%d", hour, minute, day, month, year);
     }
-
     public int getId() {
         return id;
     }
